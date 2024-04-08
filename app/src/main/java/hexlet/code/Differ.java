@@ -30,7 +30,7 @@ public class Differ {
                 } else {
                     result += "  - " + key + ": " + value1 + "\n  + " + key + ": " + value2 + "\n";
                 }
-            } else if(mapFile1.containsKey(key) && !mapFile2.containsKey(key)){
+            } else if(mapFile1.containsKey(key) && !mapFile2.containsKey(key)) {
                 String value1 = mapFile1.get(key).toString();
                 result += "  - " + key + ": " + value1 + "\n";
             } else {
