@@ -5,5 +5,6 @@
 <a href="https://codeclimate.com/github/DariaTroitskaia/java-project-71/maintainability"><img src="https://api.codeclimate.com/v1/badges/33056fc500b364b12ad8/maintainability" /></a>
 <a href="https://codeclimate.com/github/DariaTroitskaia/java-project-71/test_coverage"><img src="https://api.codeclimate.com/v1/badges/33056fc500b364b12ad8/test_coverage" /></a>
 <hr>
+
 ### Asciinema
-https://asciinema.org/a/NaF2A44IZOfUVnNACduYb1VMX
+<i>https://asciinema.org/a/NaF2A44IZOfUVnNACduYb1VMX</i>
