@@ -1,48 +1,35 @@
 package hexlet.code;
+
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.TreeSet;
-import java.util.TreeMap;
-
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.Map;
 
 public class Differ {
-    public static String generate(String file1, String file2) throws Exception {
-
-        Path path1 = Paths.get(file1).toAbsolutePath().normalize();
-        Path path2 = Paths.get(file2).toAbsolutePath().normalize();
-
-        ObjectMapper mapper =  new ObjectMapper();
-        TreeMap<String, Object> mapFile1 = mapper.readValue(Files.readString(path1), new TypeReference<>() { });
-        TreeMap<String, Object> mapFile2 = mapper.readValue(Files.readString(path2), new TypeReference<>() { });
-
-        var keys = new TreeSet(mapFile1.keySet());
-        keys.addAll(mapFile2.keySet());
-
-        String result = "{\n";
-        for (var key : keys) {
-            if (mapFile1.containsKey(key) && mapFile2.containsKey(key)) {
-                String value1 = mapFile1.get(key).toString();
-                String value2 = mapFile2.get(key).toString();
-                if (value1.equals(value2)) {
-                    result += "    " + key + ": " + value1 + "\n";
-                } else {
-                    result += "  - " + key + ": " + value1 + "\n  + " + key + ": " + value2 + "\n";
-                }
-            } else if (mapFile1.containsKey(key) && !mapFile2.containsKey(key)) {
-                String value1 = mapFile1.get(key).toString();
-                result += "  - " + key + ": " + value1 + "\n";
-            } else {
-                String value2 = mapFile2.get(key).toString();
-                result += "  + " + key + ": " + value2 + "\n";
-            }
-        }
-
-        result += "}";
-        return result;
+    public static String generate(String filepath1, String filepath2, String format) throws Exception {
+        Map value1 = getData(filepath1);
+        Map value2 = getData(filepath2);
+        Map data = DiffBuild.generateDiff(value1, value2);
+        return Formatter.getOutputText(data, format);
     }
 
+    private static Map getData(String filepath) throws Exception {
+        Path path = Paths.get(filepath).toAbsolutePath().normalize();
+        String extension = getFormat(path);
+        return Parser.parse(Files.readString(path), extension);
+    }
 
+    private static String getFormat(Path path) {
+        String fileNameStr = path.getFileName().toString();
+        int lastDot = fileNameStr.lastIndexOf('.');
+        if (lastDot == -1) {
+            return "";
+        } else {
+            return fileNameStr.substring(lastDot + 1);
+        }
+    }
+
+    public static String generate(String filepath1, String filepath2) throws Exception {
+        return generate(filepath1, filepath2, "stylish");
+    }
 }

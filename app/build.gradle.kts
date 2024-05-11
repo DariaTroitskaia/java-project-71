@@ -18,8 +18,10 @@ application {
 dependencies {
     testImplementation(platform("org.junit:junit-bom:5.9.1"))
     testImplementation("org.junit.jupiter:junit-jupiter")
+    testRuntimeOnly ("org.junit.jupiter:junit-jupiter-engine:5.9.2")
     implementation("info.picocli:picocli:4.7.5")
-    implementation("com.fasterxml.jackson.core:jackson-databind:2.12.0")
+    implementation("com.fasterxml.jackson.core:jackson-databind:2.13.4.1")
+    implementation ("com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.14.2")
 }
 
 tasks.test {
