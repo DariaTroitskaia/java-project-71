@@ -2,6 +2,7 @@ package hexlet.code;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import hexlet.code.formatter.Json;
+import hexlet.code.formatter.Plain;
 import hexlet.code.formatter.Stylish;
 
 import java.util.Map;
@@ -12,6 +13,7 @@ public class Formatter {
 //            case "plain" -> Plain.format(difference);
             case "stylish" -> Stylish.format(difference);
             case "json" -> Json.format(difference);
+            case "plain" -> Plain.format(difference);
             default -> throw new RuntimeException("no such format, try plain, stylish or json");
         };
         return outputText;
