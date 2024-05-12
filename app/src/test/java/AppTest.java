@@ -36,7 +36,7 @@ public class AppTest {
                 .toAbsolutePath().normalize());
     }
 
-    String getTestStr(String filename1, String filename2) throws Exception {
+    static String getTestStr(String filename1, String filename2) throws Exception {
         String filepath1 = getTestFilePath(filename1);
         String filepath2 = getTestFilePath(filename2);
 
@@ -46,7 +46,7 @@ public class AppTest {
         return testStr;
     }
 
-    String getTestStr(String filename1, String filename2, String format) throws Exception {
+    static String getTestStr(String filename1, String filename2, String format) throws Exception {
         String filepath1 = getTestFilePath(filename1);
         String filepath2 = getTestFilePath(filename2);
 
