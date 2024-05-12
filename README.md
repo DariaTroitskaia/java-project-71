@@ -7,8 +7,20 @@
 <hr>
 
 ### Asciinema
+Help output
+https://asciinema.org/a/nppCsgBjXsY1SCYCXrGSliNho
+
 Differ betwenn JSON files
-https://asciinema.org/a/q9FGo5MAbuAJWaGc59629eBgv
+https://asciinema.org/a/RumDw2hCm7vMtR5qjKMuHHAWa
 
 Differ betwenn YAML files
-https://asciinema.org/a/1uhr2Y36GbOLYDvANyvDGDfor
+https://asciinema.org/a/dysLQfbqEW3QN5riMlAU0pNPv
+
+Differ with Stylish - format
+https://asciinema.org/a/S1mDiVvSVDEtpncnCRavrc9H8
+
+Differ with Plain - format
+https://asciinema.org/a/WCuGAVDvSQV6KcPtFqDMpvWSC
+
+Differ with JSON - format
+https://asciinema.org/a/8eW6abUrVXZA0pUCFoejQeUS7
