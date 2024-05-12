@@ -3,7 +3,6 @@ plugins {
     application
     checkstyle
     jacoco
-    jacoco
 }
 
 group = "hexlet.code"
