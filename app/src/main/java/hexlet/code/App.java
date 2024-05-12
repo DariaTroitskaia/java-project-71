@@ -20,8 +20,9 @@ public class App implements Callable<Integer> {
     @Option(names = {"-f", "--format"}, paramLabel = "format", description = "output format [default: stylish]")
     private String format = "stylish";
 
+
     /**
-     * @return 
+     * @return
      * @throws Exception
      */
     @Override
