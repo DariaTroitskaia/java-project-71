@@ -7,4 +7,8 @@
 <hr>
 
 ### Asciinema
-<i>https://asciinema.org/a/NaF2A44IZOfUVnNACduYb1VMX</i>
+Differ betwenn JSON files
+https://asciinema.org/a/q9FGo5MAbuAJWaGc59629eBgv
+
+Differ betwenn YAML files
+https://asciinema.org/a/1uhr2Y36GbOLYDvANyvDGDfor
