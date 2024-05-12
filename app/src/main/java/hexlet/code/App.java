@@ -19,18 +19,23 @@ public class App implements Callable<Integer> {
     private String filepath2;
     @Option(names = {"-f", "--format"}, paramLabel = "format", description = "output format [default: stylish]")
     private String format = "stylish";
+
+    /**
+     * @return 
+     * @throws Exception
+     */
     @Override
     public Integer call() throws Exception {
         try {
             System.out.println(Differ.generate(filepath1, filepath2, format));
-            return null;
+            return 1;
         } catch (IOException e) {
             if (!Files.exists(Path.of(filepath1))) {
                 System.out.println("File '" + filepath1 + "' does not exist");
             } else {
                 System.out.println("File '" + filepath2 + "' does not exist");
             }
-            return null;
+            return 0;
         }
     }
     public static void main(String[] args) {
