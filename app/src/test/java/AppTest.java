@@ -107,4 +107,44 @@ public class AppTest {
         }
         assertEquals(expectedStylish, getTestStr("testFile1.yml", "testFile2.yml", "plain"));
     }
+    @Test
+    public void jsonToJsonTest() throws Exception {
+        String expectedStylish = "";
+        try {
+            expectedStylish = trueResultJSON;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        assertEquals(expectedStylish, getTestStr("testFile1.json", "testFile2.json", "json"));
+    }
+    @Test
+    public void ymlToJsonTest() throws Exception {
+        String expectedStylish = "";
+        try {
+            expectedStylish = trueResultJSON;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        assertEquals(expectedStylish, getTestStr("testFile1.yml", "testFile2.yml", "json"));
+    }
+    @Test
+    public void ymlToDefaultTest() throws Exception {
+        String expectedStylish = "";
+        try {
+            expectedStylish = trueResultStilish;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        assertEquals(expectedStylish, getTestStr("testFile1.yml", "testFile2.yml"));
+    }
+    @Test
+    public void jsonToDefaultTest() throws Exception {
+        String expectedStylish = "";
+        try {
+            expectedStylish = trueResultStilish;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        assertEquals(expectedStylish, getTestStr("testFile1.json", "testFile2.json"));
+    }
 }
