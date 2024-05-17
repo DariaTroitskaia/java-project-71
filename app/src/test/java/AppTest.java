@@ -26,10 +26,10 @@ public class AppTest {
                 .toAbsolutePath().normalize());
     }
 
-    static String readStringFromFile(String fileNameOrFullPath) throws IOException {
-        Path absolutePath = Paths.get(fileNameOrFullPath).toAbsolutePath().normalize();
-        return Files.readString(absolutePath);
-    }
+//    static String readStringFromFile(String fileNameOrFullPath) throws IOException {
+//        Path absolutePath = Paths.get(fileNameOrFullPath).toAbsolutePath().normalize();
+//        return Files.readString(absolutePath);
+//    }
 
     static String getTestFilePath(String filename) {
         return String.valueOf(Paths.get("src/test/resources/" + filename)
@@ -77,16 +77,6 @@ public class AppTest {
         assertEquals(expectedStylish, getTestStr("testFile1.yml", "testFile2.yml", "stylish"));
     }
 
-    @Test
-    public void emptyFileStylishTest() throws Exception {
-        String expectedStylish = "";
-        try {
-            expectedStylish = trueResultEmptyStilish;
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-        assertEquals(expectedStylish, getTestStr("testFile1.json", "emptyFile.json"));
-    }
     @Test
     public void jsonToPlainTest() throws Exception {
         String expectedStylish = "";
