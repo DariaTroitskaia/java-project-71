@@ -37,3 +37,9 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+
+### Another ###
+filepath1.json
+filepath1.yml
+filepath2.json
+filepath2.yml

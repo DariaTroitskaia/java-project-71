@@ -1,9 +1,0 @@
-{"version": 2, "width": 80, "height": 24, "timestamp": 1712078059, "env": {"SHELL": "/bin/bash", "TERM": "xterm-256color"}}
-[0.045647, "o", "\u001b[?2004h\u001b]0;bubanya@DaryaLinux: ~/IdeaProjects/java-project-71/app\u0007\u001b[01;32mbubanya@DaryaLinux\u001b[00m:\u001b[01;34m~/IdeaProjects/java-project-71/app\u001b[00m$ "]
-[2.473194, "o", "\u001b[7m./build/install/app/bin/a\u001b[27m\u001b[7mp\u001b[27m\u001b[7mp filepath1.json filepath2.json\u0000\u001b[27m\r\n\r"]
-[4.878562, "o", "\u001b[A\u001b[A\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C./build/install/app/bin/app filepath1.json filepath2.json\r\n\r\u001b[A\r\n\u001b[?2004l\r"]
-[5.996216, "o", "{"]
-[5.997965, "o", "\r\n  - follow: false\r\n    host: hexlet.io\r\n  - proxy: 123.234.53.22\r\n  - timeout: 50\r\n  + timeout: 20\r\n  + verbose: true\r\n}\r\n"]
-[6.018895, "o", "\u001b[?2004h"]
-[6.019056, "o", "\u001b]0;bubanya@DaryaLinux: ~/IdeaProjects/java-project-71/app\u0007\u001b[01;32mbubanya@DaryaLinux\u001b[00m:\u001b[01;34m~/IdeaProjects/java-project-71/app\u001b[00m$ "]
-[20.231353, "o", "\u001b[?2004l\r\r\nexit\r\n"]
