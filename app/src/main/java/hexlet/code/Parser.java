@@ -4,7 +4,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLMapper;
 
 import java.util.Map;
-import java.util.HashMap;
 
 public class Parser {
     public static Map<String, Object> content(String filepath, String format) throws Exception {
