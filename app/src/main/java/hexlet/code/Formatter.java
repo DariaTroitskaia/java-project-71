@@ -10,7 +10,6 @@ import java.util.Map;
 public class Formatter {
     public static String getOutputText(Map difference, String format) throws JsonProcessingException {
         String outputText = switch (format) {
-//            case "plain" -> Plain.format(difference);
             case "stylish" -> Stylish.format(difference);
             case "json" -> Json.format(difference);
             case "plain" -> Plain.format(difference);

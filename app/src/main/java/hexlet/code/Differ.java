@@ -16,7 +16,7 @@ public class Differ {
     private static Map getData(String filepath) throws Exception {
         Path path = Paths.get(filepath).toAbsolutePath().normalize();
         String extension = getFormat(path);
-        return Parser.parse(Files.readString(path), extension);
+        return Parser.content(Files.readString(path), extension);
     }
 
     private static String getFormat(Path path) {
