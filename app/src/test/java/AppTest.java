@@ -1,6 +1,8 @@
 import hexlet.code.Differ;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -30,70 +32,62 @@ public class AppTest {
                 .toAbsolutePath().normalize());
     }
 
-    @Test
-    public void jsonFilesStylishTest() throws Exception {
-        String expectedStylish = "";
-        expectedStylish = trueResultStilish;
-        String normalPath1 = normalizePath("testFile1.json");
-        String normalPath2 = normalizePath("testFile2.json");
-        assertEquals(expectedStylish, Differ.generate(normalPath1, normalPath2, "stylish"));
+    @ParameterizedTest
+    @ValueSource(strings = {"json", "yml"})
+    public void jsonFilesStylishTest(String format) throws Exception {
+        String normalPath1 = normalizePath("testFile1." + format);
+        String normalPath2 = normalizePath("testFile2." + format);
+        assertEquals(trueResultStilish, Differ.generate(normalPath1, normalPath2, "stylish"));
     }
 
+/*
     @Test
     public void ymlFilesStylishTest() throws Exception {
-        String expectedStylish = "";
-        expectedStylish = trueResultStilish;
         String normalPath1 = normalizePath("testFile1.yml");
         String normalPath2 = normalizePath("testFile2.yml");
-        assertEquals(expectedStylish, Differ.generate(normalPath1, normalPath2, "stylish"));
+        assertEquals(trueResultStilish, Differ.generate(normalPath1, normalPath2, "stylish"));
     }
+*/
 
-    @Test
-    public void jsonToPlainTest() throws Exception {
-        String expectedStylish = "";
-        expectedStylish = trueResultPlain;
-        String normalPath1 = normalizePath("testFile1.json");
-        String normalPath2 = normalizePath("testFile2.json");
-        assertEquals(expectedStylish, Differ.generate(normalPath1, normalPath2, "plain"));
+    @ParameterizedTest
+    @ValueSource(strings = {"json", "yml"})
+    public void jsonToPlainTest(String format) throws Exception {
+        String normalPath1 = normalizePath("testFile1." + format);
+        String normalPath2 = normalizePath("testFile2." + format);
+        assertEquals(trueResultPlain, Differ.generate(normalPath1, normalPath2, "plain"));
     }
+/*
     @Test
     public void ymlToPlainTest() throws Exception {
-        String expectedStylish = "";
-        expectedStylish = trueResultPlain;
         String normalPath1 = normalizePath("testFile1.yml");
         String normalPath2 = normalizePath("testFile2.yml");
-        assertEquals(expectedStylish, Differ.generate(normalPath1, normalPath2, "plain"));
+        assertEquals(trueResultPlain, Differ.generate(normalPath1, normalPath2, "plain"));
     }
-    @Test
-    public void jsonToJsonTest() throws Exception {
-        String expectedStylish = "";
-        expectedStylish = trueResultJSON;
-        String normalPath1 = normalizePath("testFile1.json");
-        String normalPath2 = normalizePath("testFile2.json");
-        assertEquals(expectedStylish, Differ.generate(normalPath1, normalPath2, "json"));
+*/
+@ParameterizedTest
+    @ValueSource(strings = {"json", "yml"})
+    public void jsonToJsonTest(String format) throws Exception {
+        String normalPath1 = normalizePath("testFile1." + format);
+        String normalPath2 = normalizePath("testFile2." + format);
+        assertEquals(trueResultJSON, Differ.generate(normalPath1, normalPath2, "json"));
     }
-    @Test
-    public void ymlToJsonTest() throws Exception {
-        String expectedStylish = "";
-        expectedStylish = trueResultJSON;
-        String normalPath1 = normalizePath("testFile1.yml");
-        String normalPath2 = normalizePath("testFile2.yml");
-        assertEquals(expectedStylish, Differ.generate(normalPath1, normalPath2, "json"));
+//    @Test
+//    public void ymlToJsonTest() throws Exception {
+//        String normalPath1 = normalizePath("testFile1.yml");
+//        String normalPath2 = normalizePath("testFile2.yml");
+//        assertEquals(trueResultJSON, Differ.generate(normalPath1, normalPath2, "json"));
+//    }
+@ParameterizedTest
+@ValueSource(strings = {"json", "yml"})
+    public void ymlToDefaultTest(String format) throws Exception {
+        String normalPath1 = normalizePath("testFile1." + format);
+        String normalPath2 = normalizePath("testFile2." + format);
+        assertEquals(trueResultStilish, Differ.generate(normalPath1, normalPath2));
     }
-    @Test
-    public void ymlToDefaultTest() throws Exception {
-        String expectedStylish = "";
-        expectedStylish = trueResultStilish;
-        String normalPath1 = normalizePath("testFile1.yml");
-        String normalPath2 = normalizePath("testFile2.yml");
-        assertEquals(expectedStylish, Differ.generate(normalPath1, normalPath2));
-    }
-    @Test
-    public void jsonToDefaultTest() throws Exception {
-        String expectedStylish = "";
-        expectedStylish = trueResultStilish;
-        String normalPath1 = normalizePath("testFile1.json");
-        String normalPath2 = normalizePath("testFile2.json");
-        assertEquals(expectedStylish, Differ.generate(normalPath1, normalPath2));
-    }
+//    @Test
+//    public void jsonToDefaultTest() throws Exception {
+//        String normalPath1 = normalizePath("testFile1.json");
+//        String normalPath2 = normalizePath("testFile2.json");
+//        assertEquals(trueResultStilish, Differ.generate(normalPath1, normalPath2));
+//    }
 }
