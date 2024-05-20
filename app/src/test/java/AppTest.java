@@ -1,6 +1,6 @@
 import hexlet.code.Differ;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
+//import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
@@ -64,7 +64,7 @@ public class AppTest {
         assertEquals(trueResultPlain, Differ.generate(normalPath1, normalPath2, "plain"));
     }
 */
-@ParameterizedTest
+    @ParameterizedTest
     @ValueSource(strings = {"json", "yml"})
     public void jsonToJsonTest(String format) throws Exception {
         String normalPath1 = normalizePath("testFile1." + format);
@@ -77,8 +77,8 @@ public class AppTest {
 //        String normalPath2 = normalizePath("testFile2.yml");
 //        assertEquals(trueResultJSON, Differ.generate(normalPath1, normalPath2, "json"));
 //    }
-@ParameterizedTest
-@ValueSource(strings = {"json", "yml"})
+    @ParameterizedTest
+    @ValueSource(strings = {"json", "yml"})
     public void ymlToDefaultTest(String format) throws Exception {
         String normalPath1 = normalizePath("testFile1." + format);
         String normalPath2 = normalizePath("testFile2." + format);
