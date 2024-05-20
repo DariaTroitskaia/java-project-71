@@ -34,7 +34,11 @@ public class Plain {
     }
 
     private static String valueToString(Object value) {
-        if (value instanceof List<?> || value instanceof Map<?, ?>) {
+        if (value == null) { // String.valueOf может работать с null,
+            // но тогда он возвращает его как строку "null" и не совпадает с тестами,
+            // поэтому оставила отдельную обработку этого случая
+            return null;
+        } else if (value instanceof List<?> || value instanceof Map<?, ?>) {
             return "[complex value]";
         } else if (!(value instanceof Boolean) && !(value instanceof Number)) {
             return "'" + value + "'";
