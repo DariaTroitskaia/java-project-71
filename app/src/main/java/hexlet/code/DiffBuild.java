@@ -9,7 +9,8 @@ import java.util.Objects;
 
 public class DiffBuild {
     public static Map<String, Object>  generateDiff(Map<String, Object> value1, Map<String, Object> value2) {
-        Map<String, Object> data = new TreeMap<>();
+        Map<String, Object> data = new TreeMap<>(); //Не совсем поняла, что вы имели ввиду в комментариях.
+        // Сделать список из мапов data, чтобы каждый мап data был отдельным составляющим списка?
         Set<String> keys = new TreeSet<>();
         keys.addAll(value1.keySet());
         keys.addAll(value2.keySet());
