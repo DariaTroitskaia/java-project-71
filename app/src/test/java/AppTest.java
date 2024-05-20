@@ -32,6 +32,10 @@ public class AppTest {
                 .toAbsolutePath().normalize());
     }
 
+    /**
+     * @param format
+     * @throws Exception
+     */
     @ParameterizedTest
     @ValueSource(strings = {"json", "yml"})
     public void jsonFilesStylishTest(String format) throws Exception {
@@ -49,6 +53,11 @@ public class AppTest {
     }
 */
 
+
+    /**
+     * @param format
+     * @throws Exception
+     */
     @ParameterizedTest
     @ValueSource(strings = {"json", "yml"})
     public void jsonToPlainTest(String format) throws Exception {
@@ -56,6 +65,11 @@ public class AppTest {
         String normalPath2 = normalizePath("testFile2." + format);
         assertEquals(trueResultPlain, Differ.generate(normalPath1, normalPath2, "plain"));
     }
+
+    /**
+     * @param format
+     * @throws Exception
+     */
 /*
     @Test
     public void ymlToPlainTest() throws Exception {
@@ -71,6 +85,11 @@ public class AppTest {
         String normalPath2 = normalizePath("testFile2." + format);
         assertEquals(trueResultJSON, Differ.generate(normalPath1, normalPath2, "json"));
     }
+
+    /**
+     * @param format 
+     * @throws Exception
+     */
 //    @Test
 //    public void ymlToJsonTest() throws Exception {
 //        String normalPath1 = normalizePath("testFile1.yml");
