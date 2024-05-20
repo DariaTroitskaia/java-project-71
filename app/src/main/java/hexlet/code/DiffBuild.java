@@ -8,9 +8,9 @@ import java.util.TreeSet;
 import java.util.Objects;
 
 public class DiffBuild {
-    public static Map generateDiff(Map<String, Object> value1, Map<String, Object> value2) {
-        Map<Object, Object> data = new TreeMap<>();
-        Set<Object> keys = new TreeSet<>();
+    public static Map<String, Object>  generateDiff(Map<String, Object> value1, Map<String, Object> value2) {
+        Map<String, Object> data = new TreeMap<>();
+        Set<String> keys = new TreeSet<>();
         keys.addAll(value1.keySet());
         keys.addAll(value2.keySet());
         for (var key : keys) {
@@ -22,20 +22,18 @@ public class DiffBuild {
             } else if (value2.containsKey(key) && !value1.containsKey(key)) {
                 keyData.put("type", "added");
                 keyData.put("value", value2.get(key));
+            } else if (Objects.equals(value1.get(key), value2.get(key))) {
+                keyData.put("type", "unchanged");
+                keyData.put("value", value1.get(key));
             } else {
-                Object value1value = value1.get(key);
-                Object value2value = value2.get(key);
-                if (Objects.equals(value1value, value2value)) {
-                    keyData.put("type", "unchanged");
-                    keyData.put("value", value1value);
-                } else {
-                    keyData.put("type", "changed");
-                    keyData.put("value1", value1value);
-                    keyData.put("value2", value2value);
-                }
+                keyData.put("type", "changed");
+                keyData.put("value1", value1.get(key));
+                keyData.put("value2", value2.get(key));
             }
+
             data.put(key, keyData);
         }
         return data;
     }
 }
+

@@ -34,17 +34,12 @@ public class Plain {
     }
 
     private static String valueToString(Object value) {
-        if (value != null) {
-            if (value instanceof List<?>
-                    || value instanceof Map<?, ?>) {
-                return "[complex value]";
-            }
-            if (!(value instanceof Boolean) && !(value instanceof Number)) {
-                return "'" + value + "'";
-            }
+        if (value instanceof List<?> || value instanceof Map<?, ?>) {
+            return "[complex value]";
+        } else if (!(value instanceof Boolean) && !(value instanceof Number)) {
+            return "'" + value + "'";
         } else {
-            return null;
+            return String.valueOf(value);
         }
-        return String.valueOf(value);
     }
 }

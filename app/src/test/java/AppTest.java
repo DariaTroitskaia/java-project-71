@@ -1,6 +1,5 @@
 import hexlet.code.Differ;
 import org.junit.jupiter.api.BeforeAll;
-//import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
@@ -44,16 +43,6 @@ public class AppTest {
         assertEquals(trueResultStilish, Differ.generate(normalPath1, normalPath2, "stylish"));
     }
 
-/*
-    @Test
-    public void ymlFilesStylishTest() throws Exception {
-        String normalPath1 = normalizePath("testFile1.yml");
-        String normalPath2 = normalizePath("testFile2.yml");
-        assertEquals(trueResultStilish, Differ.generate(normalPath1, normalPath2, "stylish"));
-    }
-*/
-
-
     /**
      * @param format
      * @throws Exception
@@ -70,14 +59,6 @@ public class AppTest {
      * @param format
      * @throws Exception
      */
-/*
-    @Test
-    public void ymlToPlainTest() throws Exception {
-        String normalPath1 = normalizePath("testFile1.yml");
-        String normalPath2 = normalizePath("testFile2.yml");
-        assertEquals(trueResultPlain, Differ.generate(normalPath1, normalPath2, "plain"));
-    }
-*/
     @ParameterizedTest
     @ValueSource(strings = {"json", "yml"})
     public void jsonToJsonTest(String format) throws Exception {
@@ -90,12 +71,6 @@ public class AppTest {
      * @param format
      * @throws Exception
      */
-//    @Test
-//    public void ymlToJsonTest() throws Exception {
-//        String normalPath1 = normalizePath("testFile1.yml");
-//        String normalPath2 = normalizePath("testFile2.yml");
-//        assertEquals(trueResultJSON, Differ.generate(normalPath1, normalPath2, "json"));
-//    }
     @ParameterizedTest
     @ValueSource(strings = {"json", "yml"})
     public void ymlToDefaultTest(String format) throws Exception {
@@ -103,10 +78,4 @@ public class AppTest {
         String normalPath2 = normalizePath("testFile2." + format);
         assertEquals(trueResultStilish, Differ.generate(normalPath1, normalPath2));
     }
-//    @Test
-//    public void jsonToDefaultTest() throws Exception {
-//        String normalPath1 = normalizePath("testFile1.json");
-//        String normalPath2 = normalizePath("testFile2.json");
-//        assertEquals(trueResultStilish, Differ.generate(normalPath1, normalPath2));
-//    }
 }
