@@ -9,8 +9,7 @@ import java.util.LinkedHashMap;
 import java.util.Objects;
 public class DiffBuild {
     public static List<Map<String, Object>> generateDiff(Map<String, Object> value1, Map<String, Object> value2) {
-        List<Map<String, Object>> data = new ArrayList<>(); //Не совсем поняла, что вы имели ввиду в комментариях.
-        // Сделать список из мапов data, чтобы каждый мап data был отдельным составляющим списка?
+        List<Map<String, Object>> data = new ArrayList<>(); 
         Set<String> keys = new TreeSet<>();
         keys.addAll(value1.keySet());
         keys.addAll(value2.keySet());
