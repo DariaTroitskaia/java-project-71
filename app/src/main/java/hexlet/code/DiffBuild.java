@@ -9,7 +9,7 @@ import java.util.LinkedHashMap;
 import java.util.Objects;
 public class DiffBuild {
     public static List<Map<String, Object>> generateDiff(Map<String, Object> value1, Map<String, Object> value2) {
-        List<Map<String, Object>> data = new ArrayList<>(); 
+        List<Map<String, Object>> data = new ArrayList<>();
         Set<String> keys = new TreeSet<>();
         keys.addAll(value1.keySet());
         keys.addAll(value2.keySet());
