@@ -5,12 +5,13 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Map;
+import java.util.List;
 
 public class Differ {
     public static String generate(String filepath1, String filepath2, String format) throws Exception {
         Map value1 = getData(filepath1);
         Map value2 = getData(filepath2);
-        Map data = DiffBuild.generateDiff(value1, value2);
+        List<Map<String, Object>> data = DiffBuild.generateDiff(value1, value2);
         return Formatter.getOutputText(data, format);
     }
 

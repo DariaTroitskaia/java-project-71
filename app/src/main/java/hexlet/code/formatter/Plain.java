@@ -5,25 +5,26 @@ import java.util.Map;
 
 public class Plain {
 
-    public static String format(Map<String, Map<String, String>> data) {
+    public static String format(List<Map<String, Object>> maps) {
         StringBuilder builder = new StringBuilder();
-        String keyValue;
-        for (String key : data.keySet()) {
-            Map<String, String> keyData = data.get(key);
-            String operand = keyData.get("type");
-            keyValue = valueToString(keyData.get("value"));
+        Object keyValue;
+        for (Map<String, Object> map : maps) {
+            String key = map.get("key").toString();
+            String operand = map.get("type").toString();
+            keyValue = map.get("value");
             switch (operand) {
                 case "deleted":
                     builder.append(String.format("Property '%s' was removed\n", key));
                     break;
                 case "added":
-                    builder.append(String.format("Property '%s' was added with value: %s\n", key, keyValue));
+                    builder.append(String.format("Property '%s' was added with value: %s\n",
+                            key, valueToString(keyValue)));
                     break;
                 case "unchanged":
                     break;
                 case "changed":
                     builder.append(String.format("Property '%s' was updated. From %s to %s\n", key,
-                            valueToString(keyData.get("value1")), valueToString(keyData.get("value2"))));
+                            valueToString(map.get("value1")), valueToString(map.get("value2"))));
                     break;
                 default:
                     throw new RuntimeException("Unexpected value: " + operand);

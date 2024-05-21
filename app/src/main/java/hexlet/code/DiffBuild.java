@@ -1,22 +1,22 @@
 package hexlet.code;
 
-import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.Objects;
-
 public class DiffBuild {
-    public static Map<String, Object>  generateDiff(Map<String, Object> value1, Map<String, Object> value2) {
-        Map<String, Object> data = new TreeMap<>(); //Не совсем поняла, что вы имели ввиду в комментариях.
+    public static List<Map<String, Object>> generateDiff(Map<String, Object> value1, Map<String, Object> value2) {
+        List<Map<String, Object>> data = new ArrayList<>(); //Не совсем поняла, что вы имели ввиду в комментариях.
         // Сделать список из мапов data, чтобы каждый мап data был отдельным составляющим списка?
         Set<String> keys = new TreeSet<>();
         keys.addAll(value1.keySet());
         keys.addAll(value2.keySet());
         for (var key : keys) {
-            Map<Object, Object> keyData = new LinkedHashMap<>();
-
+            Map<String, Object> keyData = new LinkedHashMap<>();
+            keyData.put("key", key);
             if (value1.containsKey(key) && !value2.containsKey(key)) {
                 keyData.put("type", "deleted");
                 keyData.put("value", value1.get(key));
@@ -32,7 +32,7 @@ public class DiffBuild {
                 keyData.put("value2", value2.get(key));
             }
 
-            data.put(key, keyData);
+            data.add(keyData);
         }
         return data;
     }
